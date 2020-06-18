@@ -4,7 +4,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from .managers import CustomUserManager
 
+
 class basicCustomUser(AbstractUser):
+    '''
+    This class specifies a minimal user, where only email is required and saved to the database
+    '''
     username = None
     email = models.EmailField(_('email address'), unique=True, blank=False, null=False)
     is_active = models.BooleanField( _('active'), default=True)
@@ -17,4 +21,4 @@ class basicCustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
-# Create your models here.
+
